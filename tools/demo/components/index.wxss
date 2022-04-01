@@ -1,0 +1,87 @@
+.bb_form_item {
+  width: 100%;
+  padding: 0 32rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+
+.bb_form_item:last-of-type {
+  margin-bottom: 0;
+}
+
+.bb_form_item .bb_form_item_label {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: 400;
+  margin-bottom: 20rpx;
+}
+
+.bb_form_item .bb_form_item_box_input {
+  width: 100%;
+  height: 80rpx;
+  border: 2rpx solid #E5E5E5;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.bb_form_item .bb_form_item_box_input .bb_form_item_box_unit {
+  color: #ccc;
+  font-size: 24rpx;
+}
+
+.bb_form_item .bb_form_item_box_input .input-placeholder {
+  font-size: 24rpx;
+  color: #ccc;
+}
+
+
+.bb_form_item_box_radio {
+  font-size: 24rpx;
+  color: #333;
+}
+
+.bb_form_item_box_radio .radio {
+  display: flex;
+  align-items: center;
+}
+
+.bb_form_item_box_radio .radio .radio_item {
+  display: flex;
+  align-items: center;
+  margin-right: 120rpx;
+}
+
+.bb_form_item_box_radio .radio_box {
+  position: relative;
+  width: 28rpx;
+  height: 28rpx;
+  border: 2rpx solid #CCCCCC;
+  border-radius: 14rpx;
+  box-sizing: border-box;
+  margin-right: 20rpx;
+}
+
+.bb_form_item_box_radio .radio_box text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 16rpx;
+  height: 16rpx;
+  background-color: #CCCCCC;
+  border-radius: 8rpx;
+}
+
+.bb_form_item_box_radio .radio_selected {
+  border: 2rpx solid #FF801A;
+}
+
+.bb_form_item_box_radio .radio_selected text {
+  background-color: #FF801A;
+}
