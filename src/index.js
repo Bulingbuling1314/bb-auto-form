@@ -66,15 +66,15 @@ Component({
      * @Array radio 类型的可选值
      * 例：
      * [
-     *  { name: '是', value: 1 },
-     *  { name: '否', value: 0 },
+     *  { label: '是', value: 1 },
+     *  { label: '否', value: 0 },
      * ]
     */
     radioOption: {
       type: Array,
       value: [
-        { name: '是', value: 1 },
-        { name: '否', value: 0 },
+        { label: '是', value: '1' },
+        { label: '否', value: '0' }
       ]
     },
     value: {
@@ -86,11 +86,11 @@ Component({
     modelValue: ''
   },
   attached() {
-    if (this.data.value || this.data.value === 0) {
-      this.setData({
-        modelValue: this.data.value
-      })
-    }
+    // if (this.data.value || this.data.value === 0) {
+    //   this.setData({
+    //     modelValue: this.data.value
+    //   })
+    // }
   },
   methods: {
     // change事件

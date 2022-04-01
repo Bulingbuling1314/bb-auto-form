@@ -5,21 +5,21 @@
     <view class="bb_form_item_sub_title">{{ subTitle }}</view>
     <!-- 输入框 -->
     <view class="bb_form_item_box bb_form_item_box_input" wx:if="{{type === 'input'}}">
-        <input class="input" placeholder-class="input-placeholder" value="{{ modelValue }}" placeholder="{{ placeholder }}" type="text" bindinput="change" />
+        <input class="input" placeholder-class="input-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" type="text" bindinput="change" />
         <text class="unit">{{ unit }}</text>
     </view>
     <!-- 文本域 -->
     <view class="bb_form_item_box bb_form_item_box_textarea" wx:if="{{type === 'textarea'}}">
-        <textarea class="textarea" maxlength="{{ maxlength }}" placeholder-class="textarea-placeholder" value="{{ modelValue }}" placeholder="{{ placeholder }}" bindinput="change" style="height: {{ lineHeight * 40 }}rpx" />
+        <textarea class="textarea" maxlength="{{ maxlength }}" placeholder-class="textarea-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="change" style="height: {{ lineHeight * 40 }}rpx" />
     </view>
     <!-- 单选框 -->
     <view class="bb_form_item_box bb_form_item_box_radio" wx:if="{{type === 'radio'}}">
         <view class="radio">
             <view class="radio_item" wx:for="{{ radioOption }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
-                <text class="radio_box {{ modelValue == item.value ? 'radio_selected' : '' }}">
+                <text class="radio_box {{ value == item.value ? 'radio_selected' : '' }}">
                     <text></text>
                 </text>
-                <text>{{ item.name }}</text>
+                <text>{{ item.label }}</text>
             </view>
         </view>
     </view>
