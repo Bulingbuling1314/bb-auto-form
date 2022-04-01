@@ -1,6 +1,6 @@
 {
   "name": "bb-auto-form",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -21,11 +21,11 @@
     "testEnvironment": "jsdom",
     "testURL": "https://jest.test",
     "collectCoverageFrom": [
-      "miniprogram_dist/**/*.js"
+      "dist/**/*.js"
     ],
     "moduleDirectories": [
       "node_modules",
-      "miniprogram_dist"
+      "dist"
     ]
   },
   "repository": {
