@@ -92,6 +92,8 @@ module.exports =
 "use strict";
 
 
+var _index = __webpack_require__(1);
+
 Component({
   properties: {
     /**
@@ -100,7 +102,17 @@ Component({
     */
     label: {
       type: String,
-      value: '输入框'
+      value: ''
+    },
+
+    subTitle: {
+      type: String,
+      value: ''
+    },
+
+    required: {
+      type: Boolean,
+      value: true
     },
     /**
      * @placeholder
@@ -126,51 +138,90 @@ Component({
      * input    输入框
      * select   下拉框
      * radio    单选框
+     * textarea 文本域
     */
     type: {
       type: String,
       value: 'input'
     },
+
+    maxlength: {
+      type: Number,
+      value: -1
+    },
+
+    lineHeight: {
+      type: Number,
+      value: 2
+    },
+
     /**
      * @radioOption
      * @Array radio 类型的可选值
      * 例：
      * [
-     *  { name: '是', value: 1 },
-     *  { name: '否', value: 0 },
+     *  { label: '是', value: 1 },
+     *  { label: '否', value: 0 },
      * ]
     */
     radioOption: {
       type: Array,
-      value: [{ name: '是', value: 1 }, { name: '否', value: 0 }]
+      value: [{ label: '是', value: '1' }, { label: '否', value: '0' }]
     },
     value: {
-      type: Number || String,
-      value: 0
+      type: String,
+      value: ''
     }
   },
   data: {
     modelValue: ''
   },
   attached: function attached() {
-    if (this.data.value && this.data.value !== 0) {
-      this.setData({
-        modelValue: this.data.value
-      });
-    }
+    // if (this.data.value || this.data.value === 0) {
+    //   this.setData({
+    //     modelValue: this.data.value
+    //   })
+    // }
   },
 
   methods: {
     // change事件
     change: function change(e) {
       this.setData({
-        modelValue: e.currentTarget.dataset.value
+        modelValue: (0, _index.formatValue)(this.data.type, e)
       });
       // 把事件传递上去
-      this.triggerEvent('change', e.currentTarget.dataset.value);
+      this.triggerEvent('change', this.data.modelValue);
     }
   }
 });
+
+/***/ }),
+/* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+var formatValue = function formatValue(type, data) {
+    var value = '';
+    if (type === 'input') {
+        value = data.detail.value;
+    }
+    if (type === 'radio') {
+        value = data.currentTarget.dataset.value;
+    }
+    if (type === 'textarea') {
+        value = data.detail.value;
+    }
+    if (type === 'moreSelect') {
+        value = data.detail.value;
+    }
+    return value;
+};
+
+exports.formatValue = formatValue;
 
 /***/ })
 /******/ ]);

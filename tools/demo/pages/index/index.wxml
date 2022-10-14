@@ -1,2 +1,4 @@
-<comp type="input" value="{{ input }}"></comp>
+<comp type="input" label="123" value="{{ input }}"></comp>
 <comp type="radio" bindchange="changeRadio" value="{{ radio }}"></comp>
+<comp type="radio" bindchange="changeRadio" value="{{ radio }}"></comp>
+<comp type="moreSelect" bindchange="changeRadio" value="{{ moreSelect }}"></comp>

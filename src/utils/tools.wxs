@@ -1,0 +1,7 @@
+module.exports = {
+    indexOf: function(list, value) {
+        console.log(list)
+        console.log(value)
+        return list.indexOf(value) > -1
+    }
+}

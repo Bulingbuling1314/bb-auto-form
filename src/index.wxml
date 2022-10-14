@@ -1,3 +1,4 @@
+<wxs src="./utils/tools.wxs" module="tools" />
 <view class="bb_form_item">
     <view class="bb_form_item_label {{ label && required ? 'required' : '' }}">
         <text>{{ label }}</text>
@@ -15,8 +16,19 @@
     <!-- 单选框 -->
     <view class="bb_form_item_box bb_form_item_box_radio" wx:if="{{type === 'radio'}}">
         <view class="radio">
-            <view class="radio_item" wx:for="{{ radioOption }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
+            <view class="radio_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
                 <text class="radio_box {{ value == item.value ? 'radio_selected' : '' }}">
+                    <text></text>
+                </text>
+                <text>{{ item.label }}</text>
+            </view>
+        </view>
+    </view>
+    <!-- 多选框 -->
+    <view class="bb_form_item_box bb_form_item_box_checkbox" wx:if="{{type === 'moreSelect'}}">
+        <view class="checkbox">
+            <view class="checkbox_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
+                <text class="checkbox_box {{ tools.indexOf(value, item.value) ? 'checkbox_selected' : '' }}">
                     <text></text>
                 </text>
                 <text>{{ item.label }}</text>
