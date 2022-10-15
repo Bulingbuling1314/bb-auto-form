@@ -12,6 +12,8 @@ const formatValue = (type, data, modelValue) => {
     if (type === 'moreSelect') {
         if (!value) {
             value = []
+        } else if (!Array.isArray(value)) {
+            value = value.split(',')
         }
         if (value.indexOf(data.currentTarget.dataset.value) === -1) {
             value.push(data.currentTarget.dataset.value)

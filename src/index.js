@@ -86,11 +86,11 @@ Component({
         modelValue: null
     },
     attached() {
-        // if (this.data.value || this.data.value === 0) {
-        //   this.setData({
-        //     modelValue: this.data.value
-        //   })
-        // }
+        if (this.properties.value || this.properties.value === 0) {
+            this.setData({
+                modelValue: this.properties.value
+            })
+        }
     },
     methods: {
         // change事件
