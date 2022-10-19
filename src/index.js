@@ -11,6 +11,11 @@ Component({
             value: ''
         },
 
+        disabled: {
+            type: Boolean,
+            value: false
+        },
+
         subTitle: {
             type: String,
             value: ''

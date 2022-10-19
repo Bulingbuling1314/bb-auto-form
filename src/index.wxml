@@ -6,17 +6,17 @@
     <view class="bb_form_item_sub_title">{{ subTitle }}</view>
     <!-- 输入框 -->
     <view class="bb_form_item_box bb_form_item_box_input" wx:if="{{type === 'input'}}">
-        <input class="input" placeholder-class="input-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" type="text" bindinput="change" />
+        <input disabled="{{disabled}}" class="input" placeholder-class="input-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" type="text" bindinput="change" />
         <text class="unit">{{ unit }}</text>
     </view>
     <!-- 文本域 -->
     <view class="bb_form_item_box bb_form_item_box_textarea" wx:if="{{type === 'textarea'}}">
-        <textarea class="textarea" maxlength="{{ maxlength }}" placeholder-class="textarea-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="change" style="height: {{ lineHeight * 40 }}rpx" />
+        <textarea disabled="{{disabled}}" class="textarea" maxlength="{{ maxlength }}" placeholder-class="textarea-placeholder" value="{{ value }}" placeholder="{{ placeholder }}" bindinput="change" style="height: {{ lineHeight * 40 }}rpx" />
     </view>
     <!-- 单选框 -->
     <view class="bb_form_item_box bb_form_item_box_radio" wx:if="{{type === 'radio'}}">
         <view class="radio">
-            <view class="radio_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
+            <view class="radio_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : change}}">
                 <text class="radio_box {{ value == item.value ? 'radio_selected' : '' }}">
                     <text></text>
                 </text>
@@ -27,7 +27,7 @@
     <!-- 多选框 -->
     <view class="bb_form_item_box bb_form_item_box_checkbox" wx:if="{{type === 'moreSelect'}}">
         <view class="checkbox">
-            <view class="checkbox_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="change">
+            <view class="checkbox_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : change}}">
                 <text class="checkbox_box {{ tools.indexOf(value, item.value) ? 'checkbox_selected' : '' }}">
                     <text></text>
                 </text>
