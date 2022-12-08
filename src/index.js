@@ -88,12 +88,16 @@ Component({
         }
     },
     data: {
-        modelValue: null
+        modelValue: null,
+        selectShowText: '',
+        selectIndex: ''
     },
     attached() {
         if (this.properties.value || this.properties.value === 0) {
             this.setData({
-                modelValue: this.properties.value
+                modelValue: this.properties.value,
+                selectShowText: this.data.type === 'select' ? this.data.selectList.find(item => item.value === this.properties.value).label : '',
+                selectIndex: this.data.type === 'select' ? this.data.selectList.findIndex(item => item.value === this.properties.value) : '',
             })
         }
     },
@@ -102,6 +106,17 @@ Component({
         change(e) {
             this.setData({
                 modelValue: formatValue(this.data.type, e, this.data.modelValue)
+            })
+            // 把事件传递上去
+            this.triggerEvent('change', this.data.modelValue)
+        },
+
+        // 下拉框选中特殊处理
+        selectChange(e) {
+            this.setData({
+                modelValue: this.data.selectList[e.detail.value].value,
+                selectShowText: this.data.selectList[e.detail.value].label,
+                selectIndex: e.detail.value
             })
             // 把事件传递上去
             this.triggerEvent('change', this.data.modelValue)

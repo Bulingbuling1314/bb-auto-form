@@ -16,7 +16,7 @@
     <!-- 单选框 -->
     <view class="bb_form_item_box bb_form_item_box_radio" wx:if="{{type === 'radio'}}">
         <view class="radio">
-            <view class="radio_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : change}}">
+            <view class="radio_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : 'change'}}">
                 <text class="radio_box {{ value == item.value ? 'radio_selected' : '' }}">
                     <text></text>
                 </text>
@@ -27,12 +27,20 @@
     <!-- 多选框 -->
     <view class="bb_form_item_box bb_form_item_box_checkbox" wx:if="{{type === 'moreSelect'}}">
         <view class="checkbox">
-            <view class="checkbox_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : change}}">
+            <view class="checkbox_item" wx:for="{{ selectList }}" wx:key="{{ item.value }}" data-value="{{ item.value }}" bindtap="{{disabled ? '' : 'change'}}">
                 <text class="checkbox_box {{ tools.indexOf(value, item.value) ? 'checkbox_selected' : '' }}">
                     <text></text>
                 </text>
                 <text>{{ item.label }}</text>
             </view>
+        </view>
+    </view>
+    <!-- 下拉框 -->
+    <view class="bb_form_item_box bb_form_item_box_select" wx:if="{{type === 'select'}}">
+        <view class="select">
+            <picker bindchange="{{disabled ? '' : 'selectChange'}}" range-key="label" data-value="{{ selectList[value].value }}" value="{{selectIndex}}" range="{{selectList}}">
+                <view class="picker">{{selectShowText}}</view>
+            </picker>
         </view>
     </view>
 </view>

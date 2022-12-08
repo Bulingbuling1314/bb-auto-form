@@ -21,6 +21,9 @@ const formatValue = (type, data, modelValue) => {
             value.splice(value.indexOf(data.currentTarget.dataset.value), 1)
         }
     }
+    if (type === 'select') {
+        value = data.detail.value
+    }
     return value
 }
 

@@ -1,4 +1,5 @@
-<comp type="input" label="123" value="{{ input }}"></comp>
-<comp type="radio" bindchange="changeRadio" value="{{ radio }}"></comp>
-<comp type="radio" bindchange="changeRadio" value="{{ radio }}"></comp>
-<comp type="moreSelect" bindchange="changeRadio" value="{{ moreSelect }}"></comp>
+<comp type="input" data-name="input" bindchange="change" label="123" value="{{ form.input }}"></comp>
+<comp type="radio" data-name="radio" bindchange="change" value="{{ form.radio }}"></comp>
+<comp type="radio" data-name="radio" bindchange="change" value="{{ form.radio }}"></comp>
+<comp type="moreSelect" data-name="moreSelect" bindchange="change" value="{{ form.moreSelect }}"></comp>
+<comp type="select" data-name="select" bindchange="change" value="{{ form.select }}"></comp>
